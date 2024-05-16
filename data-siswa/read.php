@@ -9,7 +9,7 @@ if (!isset($_SESSION["level"])) {
 
 <?php require("../template/navbar.php"); ?>
 
-<?php require("../template/sidebar.php"); ?>\
+<?php require("../template/sidebar.php"); ?>
 
 <!-- Main Content -->
 <div class="main-content">
@@ -39,11 +39,11 @@ if (!isset($_SESSION["level"])) {
                     <th>Action</th>
                   </tr>
                   <?php
+
                   include "../koneksi.php";
 
                   $query = mysqli_query($koneksi, "SELECT * FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas INNER JOIN spp ON siswa.id_spp = spp.id_spp");
                   $nomor = 1;
-                  $fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
 
                   while ($data = mysqli_fetch_array($query)) {
                     $link_update = "update.php?";
@@ -64,9 +64,9 @@ if (!isset($_SESSION["level"])) {
                       <td><?= $data["nama_kelas"] . " " . $data["kompetensi_keahlian"]; ?></td>
                       <td><?= $data["alamat"]; ?></td>
                       <td><?= $data["no_telp"]; ?></td>
-                      <td><?= "(" . $data["tahun"] . ") " . $fmt->formatCurrency($data["nominal"], "IDR"); ?></td>
+                      <td><?= "(" . $data["tahun"] . ") " . $data["nominal"]; ?></td>
                       <td style="width: 20%;">
-                      <a class="btn btn-warning my-1" href="<?= $link_update; ?>">
+                        <a class="btn btn-warning my-1" href="<?= $link_update; ?>">
                           Update
                         </a>
                         <a class="btn btn-danger my-1" href="action-delete.php?nisn=<?= $data["nisn"] ?>">Delete</a>

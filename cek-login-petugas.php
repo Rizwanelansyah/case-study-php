@@ -14,10 +14,12 @@ if (mysqli_num_rows($login) > 0) {
   if ($data->level == "admin") {
     $_SESSION["nama"] = $data->nama_petugas;
     $_SESSION["level"] = "admin";
+    $_SESSION["id"] = $data->id_petugas;
     header("location: home/dashboard.php");
   } elseif ($data->level == "petugas") {
     $_SESSION["nama"] = $data->nama_petugas;
     $_SESSION["level"] = "petugas";
+    $_SESSION["id"] = $data->id_petugas;
     header("location: home/dashboard.php");
   } else {
     header("location: auth-login-petugas.php?pesan=gagal");

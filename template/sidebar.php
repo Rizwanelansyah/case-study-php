@@ -29,7 +29,7 @@
         <?php } ?>
 
         <li class="menu-header">Transaksi</li>
-        <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Transaksi</span></a></li>
+        <li><a class="nav-link" href="../pembayaran/form.php"><i class="far fa-square"></i> <span>Transaksi</span></a></li>
 
       <?php } ?>
 

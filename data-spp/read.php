@@ -39,7 +39,6 @@ if (!isset($_SESSION["level"])) {
                   include "../koneksi.php";
                   $query = mysqli_query($koneksi, "SELECT * FROM spp");
                   $nomor = 1;
-                  $fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
                   while ($data = mysqli_fetch_array($query)) {
                   ?>
 
@@ -47,7 +46,7 @@ if (!isset($_SESSION["level"])) {
                       <td><?= $nomor++; ?></td>
                       <td><?= $data["id_spp"]; ?></td>
                       <td><?= $data["tahun"]; ?></td>
-                      <td><?= $fmt->formatCurrency($data["nominal"], "IDR"); ?></td>
+                      <td><?= $data["nominal"]; ?></td>
                       <td><?= $data["keterangan"]; ?></td>
                       <td style="width: 20%;">
                       <a class="btn btn-warning my-1" href="update.php?id_spp=<?= $data["id_spp"]; ?>&tahun=<?= $data["tahun"]; ?>&nominal=<?= $data["nominal"]; ?>&keterangan=<?= $data["keterangan"]; ?>">
